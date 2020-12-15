@@ -1,0 +1,231 @@
+/*
+
+Práctica 10                                                                               Ramírez Mondragón Arturo Gabriel
+13 de diciembre del 2020
+
+*/
+
+//Código fuente para los problemas vistos en la práctica 10 de Fundamentos de Programación (FI-UNAM)----------------------
+//Todas las variables de los programas se leen desde la entrada estándar (teclado)----------------------------------------
+
+//Única librería utilizada------------------------------------------------------------------------------------------------
+#include <stdio.h>
+
+//Funciones llamadas durante la funcion principal para cada problema:-----------------------------------------------------
+void primer_Ejercicio();
+void segundo_Ejercicio();
+void tercer_Ejercicio();
+
+//Declaración de variables globales:--------------------------------------------------------------------------------------
+
+
+
+//Función principal:------------------------------------------------------------------------------------------------------
+int main(){
+	
+//Variable para la estructura switch y escoger un problema----------------------------------------------------------------
+	unsigned int sel=0;
+	
+//Estructura de iteración 'do-while' para iterar todo el código-----------------------------------------------------------
+	do{
+	
+//Menú para escoger el problema:------------------------------------------------------------------------------------------
+		printf("\n Practica10\t\t\t\t\t\t\t\tRamirez Mondragon Arturo Gabriel\n 13 de diciembre del 2020.\n\n\n");
+	
+		printf("\t\t\t\t--------------Menu---------------\n\n\n\n");
+	
+		printf("\tPor favor, seleccione el problema que guste resolver:\n\n\n");
+	
+		printf(" 1) Primer ejercicio del manual.\n\n");
+		printf(" 2) Segundo ejercicio del manual.\n\n");
+		printf(" 3) Tercer ejercicio del manual.\n\n");
+		printf(" 4) Salir.\n\n");
+	
+	
+		printf("\n\n\tSeleccion: ");
+		scanf("%u", &sel);
+	
+//Selección de instrucciones para cada problema:--------------------------------------------------------------------------
+		switch (sel) {
+		
+		
+			default:
+				printf("\n\n\t\tNo tengo tantos problemas resueltos. Lo siento :(\n");
+				printf("\n\n\nEso es todo. Muchas gracias por su tiempo. Vuelva pronto.");
+				printf("\n\n");
+			break;
+		
+		
+			case 1:
+				printf("\n\n\n\n\t\t\tCiclo para adicionar valores.\n\n");
+				primer_Ejercicio();
+				printf("\n\n\nEso es todo. Muchas gracias por su tiempo. Vuelva pronto.");
+				printf("\n\n");
+			break;
+		
+		
+			case 2:
+				printf("\n\n\n\n\t\t\tPrograma para mostrar las tablas del 1-10.\n\n");
+				segundo_Ejercicio();
+				printf("\n\n\nEso es todo. Muchas gracias por su tiempo. Vuelva pronto.");
+				printf("\n\n");
+			break;
+		
+				
+			case 3:
+				printf("\n\n\n\n\t\t\tPrograma para realizar una serie\n\n");
+				tercer_Ejercicio();
+				printf("\n\n\nEso es todo. Muchas gracias por su tiempo. Vuelva pronto.");
+				printf("\n\n");
+			break;
+	
+	
+		setbuf(stdin, NULL); // limpia el buffer del teclado--------------------------------------------------------------
+		
+		}
+	
+	//Final de la estructura de iteración 'do-while' para repetir el código las veces que se desee------------------------
+	} while (sel != 4);
+	
+	return 0;
+}
+
+
+//Funciones secundarias en orden y su propia declaración de variables (locales):------------------------------------------
+
+void primer_Ejercicio() {
+
+//Para el primer ejercicio hacía falta comentarlo adecuadamente, darle objetivo y usarlo para probar la depurción---------
+/* Ejercicio sin modificar:-----------------------------------------------------------------------------------------------
+
+void primer_Ejercicio() {
+	int N, CONT, AS;
+	AS=0;
+	CONT=1;
+	printf("TECLEA UN NUMERO: ");
+	scanf("%i",&N);
+	while(CONT<=N) {
+		AS=(AS+CONT);
+		CONT=(CONT+2);
+	}
+	printf("\nEL RESULTADO ES %i\n", AS);
+}
+*/
+
+
+//Ejercicio modificado:---------------------------------------------------------------------------------------------------
+//Dependiendo la información de entrada, el programa arroja un número , incluyendo el 1.
+
+	//Declaración de variables locales:
+	int N, CONT, AS;
+	//Asignación de valores:
+	AS=0;
+	CONT=1;
+	//Interfaz para el usuario:
+	printf("TECLEA UN NUMERO: ");
+	//Almacenamiento de información en variable
+	scanf("%i",&N);
+	//Ciclo iterativo
+	while(CONT<=N) {
+	//Instrucciones por ciclo	
+		AS=(AS+CONT);
+		CONT=(CONT+2);
+	}
+	//Interfaz final
+	printf("\nEL RESULTADO ES %i\n", AS);
+
+	return;
+	
+}
+
+void segundo_Ejercicio(){
+	
+//Para el segundo ejercicio necesitamos corregir el fallo que nos impide obtener los resultados y la tabla del 10
+/* Ejercicio sin modificar:-----------------------------------------------------------------------------------------------
+	
+	void main() {
+	
+	int i, j;
+	
+	for(i=1; i<10; i++) {
+		printf("\nTabla del %i\n", i);
+		for(j=1; j==10; j++) {
+			printf("%i X %i = %i\n", i, j, i*j);
+		}
+	}
+	
+}
+*/
+	
+
+//Ejercicio modificado:--------------------------------------------------------------------------------------------------
+//Este programa muestra las tablas de multiplicar del 1 al 10 sin valores de entrada:
+
+	//Declaración de variables locales:
+	int i, j;
+	//Primer estructura de repetición para el número de tablas que se mostrarán
+	for(i=1; i<=10; i++) {
+		
+		printf("\nTabla del %i\n", i);
+		//Segunda estructura de repeticion para el alcance de las tablas
+		for(j=1; j<=10; j++)
+		//Resultado:
+			printf("%i X %i = %i\n", i, j, i*j);
+
+	}
+	
+	return;
+	
+}
+
+void tercer_Ejercicio(){
+
+//Para el tercer ejercicio debemos corregir un error (sintáxico) en el código.
+/* Ejercicio sin modificar:-----------------------------------------------------------------------------------------------
+
+	int K, X, AP, N;
+	float AS;
+	printf("EL TERMINO GENERICO DE LA SERIE ES: X^K/K!");
+	printf("\nN=");
+	scanf("%d",N);
+	printf("X=");
+	scanf("%d",X);
+	K=0;
+	AP=1;
+	AS=0;
+	while(K<=N) {
+		AS=AS+pow(X,K)/AP;
+		K=K+1;
+		AP=AP*K;
+	}
+	printf("SUM=%le",AS);
+*/
+
+//Ejercicio modificado:--------------------------------------------------------------------------------------------------
+//Código para realizar una serie:
+
+//Librerías utilizadas locales aparte de la stándard global
+#include <math.h>
+
+	//Declaración de variables locales
+	int K, X, AP, N;
+	float AS;
+	//Interfaz para usuario
+	printf("EL TERMINO GENERICO DE LA SERIE ES: X^K/K!");
+	//Almacenamiento de variables
+	printf("\nN="); scanf("%d", &N);
+	printf("X="); scanf("%d", &X);
+	//Asignación de valores para variables
+	K=0; AP=1; AS=0;
+	//Ciclo para iterar y actualizar los valores
+	while(K<=N) {
+		AS=AS+pow(X,K)/AP;
+		K=K+1;
+		AP=AP*K;
+	}
+	//Interfaz final
+	printf("SUM=%le", AS);
+	
+	return;
+	
+}
